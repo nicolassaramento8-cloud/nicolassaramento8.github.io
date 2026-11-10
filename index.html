@@ -1,1 +1,21 @@
-oi
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Site Protegido</title>
+</head>
+<body>
+    <script>
+        const senhaCorreta = "1234"; // Digite a senha desejada aqui
+        const senhaDigitada = prompt("20153698:");
+
+        if (senhaDigitada !== senhaCorreta) {
+            document.body.innerHTML = "<h1>Acesso negado. Senha incorreta.</h1>";
+        }
+    </script>
+
+    <!-- O conteúdo do seu site vai aqui abaixo -->
+    <h1>Bem-vindo ao meu site!</h1>
+    <p>Este conteúdo só aparece se a senha estiver correta.</p>
+</body>
+</html>
