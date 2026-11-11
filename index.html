@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meus Projetos</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    #busca { padding: 8px; width: 100%; max-width: 400px; margin-bottom: 15px; font-size: 16px; }
+    .app { margin: 10px 0; }
+    .app a { font-size: 18px; }
+  </style>
 </head>
 <body>
   <h1>Bem-vindo ao meu site!</h1>
@@ -15,8 +21,21 @@
   </div>
 
   <div id="conteudo" style="display:none;">
-    <p>Este conteúdo só aparece se a senha estiver correta.</p>
-    <a href="app-debug.zip" download>Baixar Astro</a>
+    <input type="text" id="busca" placeholder="Pesquisar app..." oninput="pesquisar()">
+
+    <div id="lista">
+      <div class="app">
+        <a href="app-debug.zip" download>Baixar Astro</a>
+      </div>
+      <div class="app">
+        <a href="app-debug2.zip" download>Baixar Nome do App 2</a>
+      </div>
+      <div class="app">
+        <a href="app-debug3.zip" download>Baixar Nome do App 3</a>
+      </div>
+    </div>
+
+    <p id="nada" style="display:none;">Nenhum app encontrado.</p>
   </div>
 
   <script>
@@ -28,6 +47,21 @@
       } else {
         alert("Senha incorreta!");
       }
+    }
+
+    function pesquisar() {
+      var texto = document.getElementById("busca").value.toLowerCase();
+      var apps = document.querySelectorAll(".app");
+      var achou = false;
+      apps.forEach(function (app) {
+        if (app.innerText.toLowerCase().includes(texto)) {
+          app.style.display = "block";
+          achou = true;
+        } else {
+          app.style.display = "none";
+        }
+      });
+      document.getElementById("nada").style.display = achou ? "none" : "block";
     }
   </script>
 </body>
